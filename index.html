@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Memes / Julieta Bondi</title>
+</head>
+<body>
+    <header>
+        <h1>Generador de Memes</h1>
+        <button>Imagen</button>
+        <button>Texto</button>
+        <button>Modo Oscuro</button>
+    </header>
+    <main>
+        <section>
+            <p>TOP TEXT</p>
+            <div id="imagen">
+
+            </div>
+            <p>BOTTOM TEXT</p>
+        </section>
+        <button></button>
+    </main>
+    <aside>
+        <section id="imagen">
+            <form action="">
+                <label for="url">URL</label>
+                <input type="text" name="url" id="url">
+
+                <label for="color">COLOR</label>
+                <input type="color" value="#ffffff">
+
+                <select id="modos">
+                    <option value="ninguno">Ninguno</option>
+                    <option value="aclarar">Aclarar</option>
+                    <option value="oscurecer">Oscurecer</option>
+                    <option value="diferencia">Diferencia</option>
+                    <option value="luminocidad">Luminocidad</option>
+                    <option value="multiplicar">Multiplicar</option>
+                </select>
+
+                <h2>FILTROS</h2>
+
+                <label for="brillo">BRILLO</label>
+                <input type="range" name="brillo" id="brillo">
+                <label for="opacidad">OPACIDAD</label>
+                <input type="range" name="opacidad" id="opacidad">
+                <label for="contraste">CONTRASTE</label>
+                <input type="range" name="contraste" id="contraste">
+                <label for="desenfoque">DESENFOQUE</label>
+                <input type="range" name="desenfoque" id="desenfoque">
+                <label for="edg">ESCALA DE GRISES</label>
+                <input type="range" name="edg" id="edg">
+                <label for="sepia">SEPIA</label>
+                <input type="range" name="sepia" id="sepia">
+                <label for="hue">HUE</label>
+                <input type="range" name="hue" id="hue">
+                <label for="saturacion">SATURACIÓN</label>
+                <input type="range" name="saturacion" id="saturacion">
+                <label for="negativo">NEGATIVO</label>
+                <input type="range" name="negativo" id="negativo">
+
+                <input type="button" value="RESTABLECER">
+
+            </form>
+        </section>
+
+        <section id="texto">
+            <h2>TEXTO</h2>
+            
+
+            <form action="">
+                <label for="textSuperior" >Superior</label>
+                <textarea name="textSuperior" id="textSuperior" cols="30" rows="10">
+                    Top text
+                </textarea>
+                <input type="checkbox"><label for="sinTextoSup">Sin texto superior</label>
+
+
+                <label for="textInferior">Inferior</label>
+                <textarea name="textInferior" id="textInferior" cols="30" rows="10">
+                    Bottom Text
+                </textarea>
+                
+                <input type="checkbox"><label for="sinTextoInf">Sin texto inferior</label>
+            </form>
+
+        </section>
+    </aside>
+</body>
+</html>
