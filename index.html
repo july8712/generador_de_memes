@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editor de Memes / Julieta Bondi</title>
+    <title>Editor de Memes / Julieta Bondi - Thanya Mealla</title>
 </head>
 <body>
     <header>
@@ -85,6 +85,61 @@
                 </textarea>
                 
                 <input type="checkbox"><label for="sinTextoInf">Sin texto inferior</label>
+
+                <label for="fuente">FUENTE</label>
+                <select name="fuente" id="fuente">
+                    <option value="arial">Arial</option>
+                    <option value="arialBlack">Arial Black</option>
+                    <option value="american">American Typewriter</option>
+                    <option value="andaleMono">Andale Mono</option>
+                    <option value="comicSans">Comic Sans MS</option>
+                    <option value="helvetica">Helvética</option>
+                    <option value="impact">Impact</option>
+                    <option value="verdana">Verdana</option>
+                    <option value="timeNewRoman">Time New Roman</option>
+                </select>
+
+                <div>
+                    <input type="number" name="tamanioText" min="12" value="40">
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                </div>
+
+                <div>
+                    <label for="colorTexto">Color</label>
+                    <input type="color" name="colorTexto" id="colorTexto" value="#000000">
+                </div>
+
+                <div>
+                    <label for="colorFondo">Fondo</label>
+                    <input type="color" name="colorFondo" id="colorFondo" value="#ffffff">
+                </div>
+
+                <input type="checkbox"><label for="fondoTransparente">Fondo Transparente</label>
+
+                
+                <h3>Contorno</h3>
+                
+                <div>
+                    <button>Ninguno</button>
+                    <button>Claro</button>
+                    <button>Oscuro</button>
+                </div>
+
+                <label for="espaciado">Espaciado</label>
+                <input type="number" min="10" max="50" value="35">
+
+                <label for="interlineado">Interlineado</label>
+                <select name="interlineado" id="interlineado">
+                    <option value="0.8">0.8</option>
+                    <option value="1">1</option>
+                    <option value="1.2" selected>1.2</option>
+                    <option value="1.5">1.5</option>
+                    <option value="2">2</option>
+                    <option value="2.5">2.5</option>
+                </select>
+
             </form>
 
         </section>
