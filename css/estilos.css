@@ -1,0 +1,68 @@
+*,*::after,*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.modoOscuro header{
+    background-color: #101124;
+}
+
+.modoOscuro main{
+    background-color: #27274d;
+}
+
+.modoOscuro aside {
+    background-color: #181a42;
+}
+
+.modoOscuro{
+    color: #c8c2f2;
+}
+
+.modoOscuro .btn{
+    background-color: transparent;
+    border: none;
+    color: #c8c2f2
+}
+
+.btn{
+    margin: 0 10px;
+}
+
+nav{
+    padding: 10px;
+}
+
+header{
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    height: 90vh;
+}
+
+aside{
+    width: 15%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#contenedor{
+    display: flex;
+    width: 100%;
+}
+
+#contenedor div{
+    width: 85%;
+}
+
+#texto{
+    display:none;
+}
