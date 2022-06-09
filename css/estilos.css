@@ -45,6 +45,7 @@ header{
 
 main{
     height: 90vh;
+    position: relative;
 }
 
 aside{
@@ -65,4 +66,10 @@ aside{
 
 #texto{
     display:none;
+}
+
+.firma{
+    position: absolute;
+    bottom: 15px;
+    right:15px;
 }
