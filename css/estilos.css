@@ -23,6 +23,11 @@ main {
     height: 90vh;
     position: relative;
     background-color: e0d2f0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 aside {
@@ -44,7 +49,7 @@ aside {
     width: 100%;
 }
 
-#contenedor div {
+#contGeneral {
     width: 85%;
 }
 
@@ -53,6 +58,45 @@ aside {
 #texto {
     display: none;
 }
+
+/* Sección MEME */
+
+#memeImg{
+    width: 610px;
+    height:420px;
+    background-color: black;
+}
+
+#meme{
+    height: 610px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.textoMeme{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:95px;
+    font-size: 1.5em;
+    color: #101124;
+}
+
+#descarga{
+    margin-top:30px;
+    padding: 10px 20px;
+    background-color: #c8c2f2;
+    border-radius: 10px;
+    font-size:1em;
+    border: none;
+}
+
+/* #meme p{} */
+
 
 /* Clases Específicas del Modo Oscuro */
 
@@ -84,6 +128,7 @@ aside {
     position: absolute;
     bottom: 15px;
     right:15px;
+    width: 200px;
 }
 
 
