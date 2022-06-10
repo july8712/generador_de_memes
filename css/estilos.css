@@ -5,6 +5,62 @@
 }
 
 
+
+nav {
+    padding: 10px;
+}
+
+header {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #c49ee3;
+}
+
+main {
+    height: 90vh;
+    position: relative;
+    background-color: e0d2f0;
+}
+
+aside {
+    width: 15%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: #d7b6f2;;
+}
+
+.btn {
+    margin: 0 10px;
+    background-color: transparent;
+    border: none;
+}
+
+#contenedor {
+    display: flex;
+    width: 100%;
+}
+
+#contenedor div {
+    width: 85%;
+}
+
+/* Sección de Texto */
+
+#texto {
+    display: none;
+}
+
+/* Clases Específicas del Modo Oscuro */
+
+
+.modoOscuro {
+    color: #c8c2f2;
+}
+
 .modoOscuro header{
     background-color: #101124;
 }
@@ -17,56 +73,12 @@
     background-color: #181a42;
 }
 
-.modoOscuro{
-    color: #c8c2f2;
-}
-
 .modoOscuro .btn{
-    background-color: transparent;
-    border: none;
     color: #c8c2f2
 }
 
-.btn{
-    margin: 0 10px;
-}
 
-nav{
-    padding: 10px;
-}
-
-header{
-    height: 10vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-main{
-    height: 90vh;
-    position: relative;
-}
-
-aside{
-    width: 15%;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-}
-
-#contenedor{
-    display: flex;
-    width: 100%;
-}
-
-#contenedor div{
-    width: 85%;
-}
-
-#texto{
-    display:none;
-}
+/* Imagen con firma */
 
 .firma{
     position: absolute;
