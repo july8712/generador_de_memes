@@ -1,10 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700;1,800&display=swap');
+
 *,*::after,*::before {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+body{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+}
 
+h1{
+    font-size: 2.3em;
+}
 
 nav {
     padding: 10px;
@@ -22,7 +31,12 @@ header {
 main {
     height: 90vh;
     position: relative;
-    background-color: e0d2f0;
+    background-color: #e0d2f0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 aside {
@@ -44,8 +58,12 @@ aside {
     width: 100%;
 }
 
-#contenedor div {
+#contGeneral {
     width: 85%;
+}
+
+#imagen form input[type="range"]{
+    background-color: #5a5d68 !important;
 }
 
 /* Sección de Texto */
@@ -53,6 +71,44 @@ aside {
 #texto {
     display: none;
 }
+
+/* Sección MEME */
+
+#memeImg{
+    width: 610px;
+    height:420px;
+    background-color: black;
+}
+
+#meme{
+    height: 610px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.textoMeme{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:95px;
+    font-size: 2em;
+    font-weight: 700;
+    color: #101124;
+}
+
+#descarga{
+    margin-top:30px;
+    padding: 10px 20px;
+    background-color: #c8c2f2;
+    border-radius: 10px;
+    font-size:1.3em;
+    border: none;
+    font-weight: 700;
+}
+
 
 /* Clases Específicas del Modo Oscuro */
 
@@ -84,6 +140,7 @@ aside {
     position: absolute;
     bottom: 15px;
     right:15px;
+    width: 200px;
 }
 
 
