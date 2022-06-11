@@ -9,6 +9,7 @@
 body{
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
+    background-color: #27274d;
 }
 
 h1{
@@ -20,16 +21,17 @@ nav {
 }
 
 header {
-    height: 10vh;
+    /* height: 10vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #c49ee3;
+    padding: 15px;
 }
 
 main {
-    height: 90vh;
+    /* height: 90vh; */
     position: relative;
     background-color: #e0d2f0;
     width: 100%;
@@ -37,11 +39,13 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 80px;
 }
 
 aside {
     width: 15%;
     padding: 30px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: #d7b6f2;;
@@ -51,6 +55,9 @@ aside {
     margin: 0 10px;
     background-color: transparent;
     border: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 #contenedor {
@@ -101,16 +108,24 @@ aside {
     color: #101124;
 }
 
-#descarga{
+.btn_secundary{
     margin-top:30px;
     padding: 10px 20px;
-    background-color: #c8c2f2;
+    background-color: #c49ee3;
     border-radius: 10px;
     font-size:1.3em;
     border: none;
     font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
 }
 
+/* Botón restablecer de la sección imagen */
+
+.restablecer{
+    font-size:14px;
+}
 
 /* Clases Específicas del Modo Oscuro */
 
@@ -133,6 +148,10 @@ aside {
 
 .modoOscuro .btn{
     color: #c8c2f2
+}
+
+.modoOscuro .btn_secundary{
+    background-color: #c8c2f2;
 }
 
 
