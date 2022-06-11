@@ -62,9 +62,9 @@ aside {
     width: 85%;
 }
 
-#imagen form input[type="range"]{
+/* #imagen form input[type="range"]{
     background-color: #5a5d68 !important;
-}
+} */
 
 /* Sección de Texto */
 
@@ -142,5 +142,6 @@ aside {
     right:15px;
     width: 200px;
 }
+
 
 
