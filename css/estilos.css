@@ -202,9 +202,9 @@ textarea{
 }
 /* Acá está el problema a resolver */
 
-/* #imagen form input[type="range"]{
-    background-color: #5a5d68 !important;
-} */
+input[type="range"]{
+    background-color: red;
+} 
 
 /* Sección de Texto */
 
