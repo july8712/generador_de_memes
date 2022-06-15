@@ -69,23 +69,23 @@
 
                 <div class="contFlex flexCol justCenter">
                     <label for="brillo">BRILLO</label>
-                    <input type="range" name="brillo" id="brillo">
+                    <input type="range" name="brillo" id="brillo" min="0" max="1" step="0.1" value="1">
                     <label for="opacidad">OPACIDAD</label>
-                    <input type="range" name="opacidad" id="opacidad">
+                    <input type="range" name="opacidad" id="opacidad" min="0" max="1" step="0.1" value="1">
                     <label for="contraste">CONTRASTE</label>
-                    <input type="range" name="contraste" id="contraste">
+                    <input type="range" name="contraste" id="contraste" min="100" max="1000" step="1" value="100">
                     <label for="desenfoque">DESENFOQUE</label>
-                    <input type="range" name="desenfoque" id="desenfoque">
+                    <input type="range" name="desenfoque" id="desenfoque" min="0" max="10" step="0.1" value="0">
                     <label for="edg">ESCALA DE GRISES</label>
-                    <input type="range" name="edg" id="edg">
+                    <input type="range" name="edg" id="edg" min="0" max="100" step="1" value="0">
                     <label for="sepia">SEPIA</label>
-                    <input type="range" name="sepia" id="sepia">
+                    <input type="range" name="sepia" id="sepia" min="0" max="100" step="1" value="0">
                     <label for="hue">HUE</label>
-                    <input type="range" name="hue" id="hue">
+                    <input type="range" name="hue" id="hue" min="0" max="359" step="1" value="0">
                     <label for="saturacion">SATURACIÓN</label>
-                    <input type="range" name="saturacion" id="saturacion">
+                    <input type="range" name="saturacion" id="saturacion" min="100" max="1000" step="10" value="100">
                     <label for="negativo">NEGATIVO</label>
-                    <input type="range" name="negativo" id="negativo">
+                    <input type="range" name="negativo" id="negativo" min="0" max="1" step="0.1" value="0">
 
                     <input type="button" class="btn_secundary restablecer" value="RESTABLECER">
                 </div>
@@ -160,7 +160,7 @@
                 <div class="contFlex justBet conj_btn">
                     <button class="btnOscuro btn_cont">Ninguno</button>
                     <button class="btnOscuro btn_cont">Claro</button>
-                    <button class="btnOscuro btn_cont" onclick="cambiarModo">Oscuro</button>
+                    <button class="btnOscuro btn_cont">Oscuro</button>
                 </div>
 
                 <div class="contFlex flexCol justCenter">
