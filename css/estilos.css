@@ -20,6 +20,10 @@ h2{
     margin-bottom:15px;
 }
 
+h3{
+    margin: 15px 0;
+}
+
 label{
    margin: 20px 0 5px 0;
 }
@@ -60,12 +64,29 @@ aside {
 }
 
 .btn {
-    margin: 0 10px;
+    margin: 0 15px;
     background-color: transparent;
     border: none;
     font-size: 18px;
     font-weight: bold;
     margin-top: 10px;
+}
+
+.btn_cont{
+    padding: 10px 12px;
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius:10px;
+}
+
+.conj_btn{
+    margin-bottom:20px;
+}
+
+i{
+    margin-right: 7px;
 }
 
 #contenedor {
@@ -82,6 +103,9 @@ aside {
     /* margin: 20px 0; */
 }
 
+.contText{
+    margin-bottom: 15px;
+}
 .justCenter{
     justify-content: center;
 }
@@ -94,16 +118,37 @@ aside {
     align-items: flex-end;
 }
 
+.bas{
+    align-items:baseline;
+}
+
 .flexCol{
     flex-direction: column;
 }
 
 select{
     height:32px;
+    padding: 7px;
 }
 
 #url{
     height:32px;
+}
+
+#fuente{
+    height:36px;
+}
+.tamanioText div{
+    width:50%;
+    margin-left: 10px;
+}
+
+.tamanioText button {
+    padding:7px 7px;
+}
+
+.tamanioText input, .tamanioText button{
+    height:36px;
 }
 
 .fondo{
@@ -114,8 +159,46 @@ select{
     margin-bottom: 15px;
 }
 
+input{
+    border-radius:5px;
+}
+
 input[type="color"]{
     width: 100px;
+    height: 34px;
+    border: none;
+    border-radius:5px;
+}
+
+input[type="checkbox"]{
+    margin-right: 10px;
+}
+
+input[type="number"]{
+    width: 50%;
+    padding: 7px;
+}
+
+#espaciado{
+    width:100%;
+    height:36px;
+    margin-top: 15px;
+}
+
+textarea{
+    height:36px;
+    margin-top: 15px;
+    padding: 7px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+#fuente{
+    margin: 15px 0;
+}
+
+#interlineado{
+    margin: 15px 0;
+    height: 36px;
 }
 /* Acá está el problema a resolver */
 
@@ -198,7 +281,7 @@ input[type="color"]{
     color: #c8c2f2
 }
 
-.modoOscuro .btn_secundary{
+.modoOscuro .btn_secundary, .modoOscuro .btn_cont{
     background-color: #c8c2f2;
 }
 
