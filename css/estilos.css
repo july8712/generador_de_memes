@@ -16,6 +16,14 @@ h1{
     font-size: 2.3em;
 }
 
+h2{
+    margin-bottom:15px;
+}
+
+label{
+   margin: 20px 0 5px 0;
+}
+
 nav {
     padding: 10px;
 }
@@ -45,7 +53,7 @@ main {
 aside {
     width: 15%;
     padding: 30px;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     background-color: #d7b6f2;;
@@ -69,6 +77,46 @@ aside {
     width: 85%;
 }
 
+.contFlex{
+    display: flex;
+    /* margin: 20px 0; */
+}
+
+.justCenter{
+    justify-content: center;
+}
+
+.justBet{
+    justify-content: space-between;
+}
+
+.alignEnd{
+    align-items: flex-end;
+}
+
+.flexCol{
+    flex-direction: column;
+}
+
+select{
+    height:32px;
+}
+
+#url{
+    height:32px;
+}
+
+.fondo{
+    margin-bottom: 40px;
+}
+
+.fondo label, .url label{
+    margin-bottom: 15px;
+}
+
+input[type="color"]{
+    width: 100px;
+}
 /* Acá está el problema a resolver */
 
 /* #imagen form input[type="range"]{
