@@ -13,6 +13,7 @@ const textSuperior = document.querySelector("#textSuperior");
 const textInferior = document.querySelector("#textInferior");
 const topText = document.querySelector("#topText");
 const infText = document.querySelector("#infText");
+//variables tipo range
 
 const rangeBrillo = document.querySelector("#brillo");
 
