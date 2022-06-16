@@ -8,8 +8,27 @@ let seccionImg = document.querySelector("#imagen");
 let seccionTxt = document.querySelector("#texto");
 let btn_secundary = document.querySelector(".btn_secundary");
 let etiquetaBody = document.querySelector("body");
+// textos del meme
+const textSuperior = document.querySelector("#textSuperior");
+const textInferior = document.querySelector("#textInferior");
+const topText = document.querySelector("#topText");
+const infText = document.querySelector("#infText");
+//variables tipo range
+
+const rangeBrillo = document.querySelector("#brillo");
 
 
+//Funciones de cambiar texto Superior e Inferior
+
+textSuperior.addEventListener("input", (event)=>{
+    const valorActual = event.target.value;
+    topText.innerHTML = valorActual;
+})
+
+textInferior.addEventListener("input", (event)=>{
+    const valorActual = event.target.value;
+    infText.innerHTML = valorActual;
+})
 
 // function cambiar Modo Color
 
