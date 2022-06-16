@@ -17,6 +17,30 @@ const infText = document.querySelector("#infText");
 
 const rangeBrillo = document.querySelector("#brillo");
 
+//Variables de imagen
+
+const url = document.querySelector("#url");
+const memeImg = document.querySelector("#memeImg");
+console.log(url.target)
+
+//función generador de imagen
+
+url.addEventListener("input", (event)=>{
+    const rutaImg = event.target.value;
+    memeImg.style.backgroundImage = `url('${rutaImg}')`;
+})
+
+//Ejemplo de filtro del profe
+// const points = document.getElementById('points');
+// const range = document.getElementById('range');
+// const img = document.getElementById('img');
+
+
+// points.addEventListener('input', (event) => {
+//   const valorActual = event.target.value;
+//   range.innerHTML = `El valor actual es: ${valorActual}%`
+//   img.style.filter = `brightness(${valorActual}%)`
+// })
 
 //Funciones de cambiar texto Superior e Inferior
 
