@@ -13,6 +13,8 @@ const textSuperior = document.querySelector("#textSuperior");
 const textInferior = document.querySelector("#textInferior");
 const topText = document.querySelector("#topText");
 const infText = document.querySelector("#infText");
+const fuente = document.querySelector("#fuente");
+const tamanioText = document.querySelector("#tamanioText");
 //variables tipo range
 
 const rangeBrillo = document.querySelector("#brillo");
@@ -42,7 +44,7 @@ url.addEventListener("input", (event)=>{
 //   img.style.filter = `brightness(${valorActual}%)`
 // })
 
-//Funciones de cambiar texto Superior e Inferior
+//Funciones de texto 
 
 textSuperior.addEventListener("input", (event)=>{
     const valorActual = event.target.value;
@@ -52,6 +54,59 @@ textSuperior.addEventListener("input", (event)=>{
 textInferior.addEventListener("input", (event)=>{
     const valorActual = event.target.value;
     infText.innerHTML = valorActual;
+})
+
+fuente.addEventListener("change", (event)=>{
+    const eleccionTipo = event.target.value;
+
+    switch (eleccionTipo) {
+    case "arial":
+        topText.style.fontFamily = "arial";
+        infText.style.fontFamily = "arial";
+        break;
+    case "arialBlack":
+        topText.style.fontFamily = "Arial Black, Arial Bold, Gadget, sans-serif";
+        infText.style.fontFamily = "Arial Black, Arial Bold, Gadget, sans-serif";
+        break;
+    case "american":
+        topText.style.fontFamily = "american"
+        infText.style.fontFamily = "american";
+        break;
+    case "andaleMono":
+        topText.style.fontFamily = "Andale Mono, AndaleMono, monospace";
+        infText.style.fontFamily = "andale mono, AndaleMono, monospace";
+        break;
+    case "comicSans":
+        topText.style.fontFamily = "Comic Sans MS", "Comic Sans, cursive";
+        infText.style.fontFamily = "Comic Sans MS", "Comic Sans, cursive";
+        break;
+    case "helvetica":
+        topText.style.fontFamily = "helvetica";
+        infText.style.fontFamily = "helvetica";
+        break;
+    case "impact":
+        topText.style.fontFamily = "impact";
+        infText.style.fontFamily = "impact";
+        break;
+    case "verdana":
+        topText.style.fontFamily = "verdana";
+        infText.style.fontFamily = "verdana";
+        break;
+    case "timeNewRoman":
+        topText.style.fontFamily = "time new Roman"
+        infText.style.fontFamily = "time new Roman";
+        break;
+    default:
+        topText.style.fontFamily = "Work Sans";
+        infText.style.fontFamily = "Work Sans";
+        break;
+    }
+})
+
+tamanioText.addEventListener("change", (event)=>{
+    const tamanio = event.target.value;
+    topText.style.fontSize = `${tamanio}px`;
+    infText.style.fontSize = `${tamanio}px`;
 })
 
 // function cambiar Modo Color

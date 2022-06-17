@@ -201,10 +201,23 @@ textarea{
     height: 36px;
 }
 /* Acá está el problema a resolver */
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb {
 
-input[type="range"]{
-    background-color: red !important;
-} 
+    -webkit-appearance: none;
+}
+input[type=range]:focus {
+    outline: none;
+    /*Elimina el borde azul. Se debería dar estilo de enfoque por razones de accesibilidad */
+}
+input[type='range'] {
+    -webkit-appearance: none;
+    background: red;
+        /* quitamos estilos es moz y webkit lo ponemios transparente */
+
+        width: 100%;
+    /* En firefox es requerido poner el ancho */
+}
 
 /* Sección de Texto */
 
@@ -216,14 +229,14 @@ input[type="range"]{
 
 #memeImg{
     width: 610px;
-    height:374px;
+    height:358px;
     background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #meme{
-    height: 610px;
+    height: 610;
     display: flex;
     flex-direction: column;
     align-items: center;
