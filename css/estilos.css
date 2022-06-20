@@ -233,6 +233,7 @@ input[type='range'] {
     background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 #meme{
@@ -241,18 +242,23 @@ input[type='range'] {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    /* background-color: white; */
+    position: relative;
 }
 
 .textoMeme{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
     height:95px;
     width: 100%;
     font-size: 2em;
     font-weight: 700;
+    text-align: center;
+    line-height:95px;
     color: #101124;
+    background-color: white;
+    position:static;
 }
 
 .btn_secundary{
