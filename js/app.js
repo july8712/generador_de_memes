@@ -10,6 +10,7 @@ let btn_secundary = document.querySelector(".btn_secundary");
 let etiquetaBody = document.querySelector("body");
 let activoInf = false;
 let activoSup = false;
+let activoTransparent = false;
 // textos del meme
 const textSuperior = document.querySelector("#textSuperior");
 const textInferior = document.querySelector("#textInferior");
@@ -22,6 +23,8 @@ const fondoTextoMeme = document.querySelectorAll(".textoMeme");
 const colorFondo = document.querySelector("#colorFondo");
 const sinTextoSup = document.querySelector("#sinTextoSup");
 const sinTextoInf = document.querySelector("#sinTextoInf");
+const fondoTransparente = document.querySelector("#fondoTransparente");
+let colorFondoText ="white";
 //variables tipo range
 
 const rangeBrillo = document.querySelector("#brillo");
@@ -134,9 +137,9 @@ colorTexto.addEventListener("change", (event)=>{
 // Función de cambio de color de fondo de la tipografía
 
 colorFondo.addEventListener("change", (event)=>{
-    const colorFondo = event.target.value;
-    fondoTextoMeme[0].style.backgroundColor = colorFondo;
-    fondoTextoMeme[1].style.backgroundColor = colorFondo;
+    colorFondoText = event.target.value;
+    fondoTextoMeme[0].style.backgroundColor = colorFondoText;
+    fondoTextoMeme[1].style.backgroundColor = colorFondoText;
 })
 
 // Función "sin texto"
@@ -149,7 +152,7 @@ sinTextoSup.addEventListener("change", (event)=>{
         console.log(tamanioImg)
         memeImg.style.height = `${(tamanioImg)}px`;
     }else{
-        fondoTextoMeme[0].style.display = "flex";
+        fondoTextoMeme[0].style.display = "block";
         tamanioImg = tamanioImg - 95;
         console.log(tamanioImg)
         memeImg.style.height = `${tamanioImg}px`;
@@ -164,10 +167,34 @@ sinTextoInf.addEventListener("change", (event)=>{
         console.log(tamanioImg)
         memeImg.style.height = `${(tamanioImg)}px`;
     }else{
-        fondoTextoMeme[1].style.display = "flex";
+        fondoTextoMeme[1].style.display = "block";
         tamanioImg = tamanioImg - 95;
         console.log(tamanioImg)
         memeImg.style.height = `${tamanioImg}px`;
+    }
+})
+
+//fondo Transparente
+
+fondoTransparente.addEventListener("change", (event)=>{
+    activoTransparent = !activoTransparent;
+    console.log(colorFondoText)
+    if (activoTransparent) {
+        fondoTextoMeme[0].style.backgroundColor = "transparent";
+        fondoTextoMeme[1].style.backgroundColor = "transparent";
+        fondoTextoMeme[0].style.position = "absolute";
+        fondoTextoMeme[1].style.position = "absolute";
+        fondoTextoMeme[0].style.top = 0;
+        fondoTextoMeme[0].style.left = 0;
+        fondoTextoMeme[1].style.bottom = 0;
+        fondoTextoMeme[1].style.left = 0;
+        memeImg.style.height = "548px";
+    }else{
+        fondoTextoMeme[0].style.backgroundColor = colorFondoText;
+        fondoTextoMeme[1].style.backgroundColor = colorFondoText;
+        fondoTextoMeme[0].style.position = "static";
+        fondoTextoMeme[1].style.position = "static";
+        memeImg.style.height = "358px";
     }
 })
 
