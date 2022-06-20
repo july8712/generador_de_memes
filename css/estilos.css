@@ -249,6 +249,7 @@ input[type='range'] {
     justify-content: center;
     align-items: center;
     height:95px;
+    width: 100%;
     font-size: 2em;
     font-weight: 700;
     color: #101124;

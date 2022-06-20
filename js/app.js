@@ -8,6 +8,8 @@ let seccionImg = document.querySelector("#imagen");
 let seccionTxt = document.querySelector("#texto");
 let btn_secundary = document.querySelector(".btn_secundary");
 let etiquetaBody = document.querySelector("body");
+let activoInf = false;
+let activoSup = false;
 // textos del meme
 const textSuperior = document.querySelector("#textSuperior");
 const textInferior = document.querySelector("#textInferior");
@@ -15,6 +17,11 @@ const topText = document.querySelector("#topText");
 const infText = document.querySelector("#infText");
 const fuente = document.querySelector("#fuente");
 const tamanioText = document.querySelector("#tamanioText");
+const colorTexto = document.querySelector("#colorTexto");
+const fondoTextoMeme = document.querySelectorAll(".textoMeme");
+const colorFondo = document.querySelector("#colorFondo");
+const sinTextoSup = document.querySelector("#sinTextoSup");
+const sinTextoInf = document.querySelector("#sinTextoInf");
 //variables tipo range
 
 const rangeBrillo = document.querySelector("#brillo");
@@ -23,9 +30,10 @@ const rangeBrillo = document.querySelector("#brillo");
 
 const url = document.querySelector("#url");
 const memeImg = document.querySelector("#memeImg");
-console.log(url.target)
+let tamanioImg = memeImg.clientHeight;
 
-//función generador de imagen
+console.log(tamanioImg);
+// ********************************* función generador de imagen **************************************
 
 url.addEventListener("input", (event)=>{
     const rutaImg = event.target.value;
@@ -44,7 +52,9 @@ url.addEventListener("input", (event)=>{
 //   img.style.filter = `brightness(${valorActual}%)`
 // })
 
-//Funciones de texto 
+//*************************** Funciones de texto ******************************
+
+//Escritura en el HTML
 
 textSuperior.addEventListener("input", (event)=>{
     const valorActual = event.target.value;
@@ -55,6 +65,8 @@ textInferior.addEventListener("input", (event)=>{
     const valorActual = event.target.value;
     infText.innerHTML = valorActual;
 })
+
+// Cambio de tipografía
 
 fuente.addEventListener("change", (event)=>{
     const eleccionTipo = event.target.value;
@@ -103,13 +115,63 @@ fuente.addEventListener("change", (event)=>{
     }
 })
 
+// Cambio de tamaño de tipografía
+
 tamanioText.addEventListener("change", (event)=>{
     const tamanio = event.target.value;
     topText.style.fontSize = `${tamanio}px`;
     infText.style.fontSize = `${tamanio}px`;
 })
 
-// function cambiar Modo Color
+// Función de cambio de color en la tipografía
+
+colorTexto.addEventListener("change", (event)=>{
+    const color = event.target.value;
+    topText.style.color = color;
+    infText.style.color = color;
+})
+
+// Función de cambio de color de fondo de la tipografía
+
+colorFondo.addEventListener("change", (event)=>{
+    const colorFondo = event.target.value;
+    fondoTextoMeme[0].style.backgroundColor = colorFondo;
+    fondoTextoMeme[1].style.backgroundColor = colorFondo;
+})
+
+// Función "sin texto"
+
+sinTextoSup.addEventListener("change", (event)=>{
+    activoSup = !activoSup;
+    if (activoSup) {
+        fondoTextoMeme[0].style.display = "none";
+        tamanioImg = tamanioImg + 95;
+        console.log(tamanioImg)
+        memeImg.style.height = `${(tamanioImg)}px`;
+    }else{
+        fondoTextoMeme[0].style.display = "flex";
+        tamanioImg = tamanioImg - 95;
+        console.log(tamanioImg)
+        memeImg.style.height = `${tamanioImg}px`;
+    }
+})
+
+sinTextoInf.addEventListener("change", (event)=>{
+    activoInf = !activoInf;
+    if (activoInf) {
+        fondoTextoMeme[1].style.display = "none";
+        tamanioImg = tamanioImg + 95;
+        console.log(tamanioImg)
+        memeImg.style.height = `${(tamanioImg)}px`;
+    }else{
+        fondoTextoMeme[1].style.display = "flex";
+        tamanioImg = tamanioImg - 95;
+        console.log(tamanioImg)
+        memeImg.style.height = `${tamanioImg}px`;
+    }
+})
+
+//************************** function cambiar Modo Color *****************************
 
 btnOscuro.addEventListener("click", function(){
     body.classList.toggle("modoOscuro");
@@ -128,7 +190,7 @@ btnOscuro.addEventListener("click", function(){
     }
 })
 
-// Función Cambio de contenido Aside
+//************************* Función Cambio de contenido Aside *************************
 
 btnTexto.addEventListener("click", function(){
     seccionTxt.style.display = "block";
