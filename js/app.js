@@ -161,11 +161,12 @@ sinTextoSup.addEventListener("change", (event)=>{
 
 sinTextoInf.addEventListener("change", (event)=>{
     activoInf = !activoInf;
+    // activoTransparent = !activoTransparent;
     if (activoInf) {
         fondoTextoMeme[1].style.display = "none";
         tamanioImg = tamanioImg + 95;
         console.log(tamanioImg)
-        memeImg.style.height = `${(tamanioImg)}px`;
+        memeImg.style.height = `${tamanioImg}px`;
     }else{
         fondoTextoMeme[1].style.display = "block";
         tamanioImg = tamanioImg - 95;
@@ -188,13 +189,13 @@ fondoTransparente.addEventListener("change", (event)=>{
         fondoTextoMeme[0].style.left = 0;
         fondoTextoMeme[1].style.bottom = 0;
         fondoTextoMeme[1].style.left = 0;
-        memeImg.style.height = "548px";
+        memeImg.style.height = `${tamanioImg + 190}px`;
     }else{
         fondoTextoMeme[0].style.backgroundColor = colorFondoText;
         fondoTextoMeme[1].style.backgroundColor = colorFondoText;
         fondoTextoMeme[0].style.position = "static";
         fondoTextoMeme[1].style.position = "static";
-        memeImg.style.height = "358px";
+        memeImg.style.height = `${tamanioImg}px`;
     }
 })
 

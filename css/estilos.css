@@ -237,7 +237,7 @@ input[type='range'] {
 }
 
 #meme{
-    height: 610;
+    height: 548px;
     display: flex;
     flex-direction: column;
     align-items: center;
