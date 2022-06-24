@@ -25,6 +25,8 @@ const sinTextoSup = document.querySelector("#sinTextoSup");
 const sinTextoInf = document.querySelector("#sinTextoInf");
 const fondoTransparente = document.querySelector("#fondoTransparente");
 let colorFondoText ="white";
+const interlineado = document.querySelector("#interlineado");
+const espaciado = document.querySelector("#espaciado");
 //variables tipo range
 
 const rangeBrillo = document.querySelector("#brillo");
@@ -124,6 +126,22 @@ tamanioText.addEventListener("change", (event)=>{
     const tamanio = event.target.value;
     topText.style.fontSize = `${tamanio}px`;
     infText.style.fontSize = `${tamanio}px`;
+})
+
+// Función cambio de Interlineado
+
+interlineado.addEventListener("change", (event)=>{
+    const interlineadoTexto = event.target.value;
+    topText.style.lineHeight = interlineadoTexto;
+    infText.style.lineHeight = interlineadoTexto;
+})
+
+// Función cambio de Espaciado
+
+espaciado.addEventListener("change", (event)=>{
+    const espaciadoTexto = event.target.value;
+    topText.style.padding = `${espaciadoTexto}px 50px`;
+    infText.style.padding = `${espaciadoTexto}px 50px`;
 })
 
 // Función de cambio de color en la tipografía
