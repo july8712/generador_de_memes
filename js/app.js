@@ -36,8 +36,9 @@ const rangeBrillo = document.querySelector("#brillo");
 const url = document.querySelector("#url");
 const memeImg = document.querySelector("#memeImg");
 let tamanioImg = memeImg.clientHeight;
+let tamanioParrafoSup = topText.clientHeight;
 
-console.log(tamanioImg);
+console.log(tamanioParrafoSup);
 // ********************************* función generador de imagen **************************************
 
 url.addEventListener("input", (event)=>{
@@ -142,6 +143,7 @@ espaciado.addEventListener("change", (event)=>{
     const espaciadoTexto = event.target.value;
     topText.style.padding = `${espaciadoTexto}px 50px`;
     infText.style.padding = `${espaciadoTexto}px 50px`;
+    console.log(topText.clientHeight);
 })
 
 // Función de cambio de color en la tipografía
@@ -164,30 +166,40 @@ colorFondo.addEventListener("change", (event)=>{
 
 sinTextoSup.addEventListener("change", (event)=>{
     activoSup = !activoSup;
-    if (activoSup) {
+    tamanioImg = tamanioImg + topText.clientHeight;
+    if (activoSup && activoTransparent == false) {
         fondoTextoMeme[0].style.display = "none";
-        tamanioImg = tamanioImg + 95;
-        console.log(tamanioImg)
-        memeImg.style.height = `${(tamanioImg)}px`;
-    }else{
+        tamanioImg = tamanioImg + topText.clientHeight;
+        console.log("Sin fondo transparente el texto es de " +tamanioImg)
+        memeImg.style.height = `${tamanioImg}px`;
+    }else if(activoSup && activoTransparent){
+        fondoTextoMeme[0].style.display = "none";
+        console.log("El fondo transparente sin texto es de " + tamanioImg)
+        memeImg.style.height = `${(memeImg.height + topText.clientHeight)}px`;
+    }
+    else{
         fondoTextoMeme[0].style.display = "block";
-        tamanioImg = tamanioImg - 95;
-        console.log(tamanioImg)
+        tamanioImg = tamanioImg + topText.clientHeight;
+        console.log("Fondo es de " +tamanioImg)
         memeImg.style.height = `${tamanioImg}px`;
     }
 })
 
 sinTextoInf.addEventListener("change", (event)=>{
     activoInf = !activoInf;
-    // activoTransparent = !activoTransparent;
-    if (activoInf) {
+    tamanioImg = tamanioImg + infText.clientHeight;
+    if (activoInf && activoTransparent == false) {
         fondoTextoMeme[1].style.display = "none";
-        tamanioImg = tamanioImg + 95;
-        console.log(tamanioImg)
+        tamanioImg = tamanioImg + infText.clientHeight;
+        console.log("Sin fondo transparente el texto es de " +tamanioImg)
         memeImg.style.height = `${tamanioImg}px`;
+    }else if(activoInf && activoTransparent){
+        fondoTextoMeme[1].style.display = "none";
+        console.log("El fondo transparente sin texto es de " + tamanioImg)
+        memeImg.style.height = `${(memeImg.height + infText.clientHeight)}px`;
     }else{
         fondoTextoMeme[1].style.display = "block";
-        tamanioImg = tamanioImg - 95;
+        tamanioImg = tamanioImg + infText.clientHeight;
         console.log(tamanioImg)
         memeImg.style.height = `${tamanioImg}px`;
     }
@@ -207,13 +219,17 @@ fondoTransparente.addEventListener("change", (event)=>{
         fondoTextoMeme[0].style.left = 0;
         fondoTextoMeme[1].style.bottom = 0;
         fondoTextoMeme[1].style.left = 0;
-        memeImg.style.height = `${tamanioImg + 190}px`;
+        memeImg.style.height = `${tamanioImg + infText.clientHeight + infText.clientHeight}px`;
+        activoTransparent = true;
+        console.log("El tamaño con fondo transparente es de "+memeImg.clientHeight)
     }else{
         fondoTextoMeme[0].style.backgroundColor = colorFondoText;
         fondoTextoMeme[1].style.backgroundColor = colorFondoText;
         fondoTextoMeme[0].style.position = "static";
         fondoTextoMeme[1].style.position = "static";
         memeImg.style.height = `${tamanioImg}px`;
+        activoTransparent = false;
+        console.log("El tamaño sin fondo transparente es de "+memeImg.clientHeight)
     }
 })
 
