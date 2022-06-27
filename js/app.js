@@ -27,6 +27,9 @@ const fondoTransparente = document.querySelector("#fondoTransparente");
 let colorFondoText ="white";
 const interlineado = document.querySelector("#interlineado");
 const espaciado = document.querySelector("#espaciado");
+const contNinguno = document.querySelector("#contNinguno");
+const contClaro = document.querySelector("#contClaro");
+const contOscuro = document.querySelector("#contOscuro");
 //variables tipo range
 
 const rangeBrillo = document.querySelector("#brillo");
@@ -232,6 +235,27 @@ fondoTransparente.addEventListener("change", (event)=>{
         console.log("El tamaño sin fondo transparente es de "+memeImg.clientHeight)
     }
 })
+
+//Función Contorno de texto
+
+contNinguno.addEventListener("click", (event)=>{
+    event.preventDefault();
+    topText.style.textShadow = `none`;
+    infText.style.textShadow = `none`;
+})
+
+contClaro.addEventListener("click", (event)=>{
+    event.preventDefault();
+    topText.style.textShadow = `3px 2px 2px rgba(255,252,226,0.5)`;
+    infText.style.textShadow = `3px 2px 2px rgba(255,252,226,0.5)`;
+})
+
+contOscuro.addEventListener("click", (event)=>{
+    event.preventDefault();
+    topText.style.textShadow = `3px 2px 2px rgba(0,0,0,0.5)`;
+    infText.style.textShadow = `3px 2px 2px rgba(0,0,0,0.5)`;
+})
+
 
 //************************** function cambiar Modo Color *****************************
 
