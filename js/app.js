@@ -30,9 +30,20 @@ const espaciado = document.querySelector("#espaciado");
 const contNinguno = document.querySelector("#contNinguno");
 const contClaro = document.querySelector("#contClaro");
 const contOscuro = document.querySelector("#contOscuro");
+const alIzquierda = document.querySelector(".fa-align-left");
+const alCentro = document.querySelector(".fa-align-center");
+const alDerecha = document.querySelector(".fa-align-right");
 //variables tipo range
 
 const rangeBrillo = document.querySelector("#brillo");
+const rangeOpacidad = document.querySelector("#opacidad")
+const rangeContraste = document.querySelector("#contraste");
+const rangeDesenfoque = document.querySelector("#desenfoque");
+const rangeEDG = document.querySelector("#edg");
+const rangeSepia = document.querySelector("#sepia");
+const rangeHue = document.querySelector("#hue");
+const rangeSaturacion = document.querySelector("#saturacion");
+const rangeNegativo = document.querySelector("#negativo")
 
 //Variables de imagen
 
@@ -49,17 +60,70 @@ url.addEventListener("input", (event)=>{
     memeImg.style.backgroundImage = `url('${rutaImg}')`;
 })
 
-//Ejemplo de filtro del profe
-// const points = document.getElementById('points');
-// const range = document.getElementById('range');
-// const img = document.getElementById('img');
+// ************************************* Filtros Range **************************************************
 
+// Brillo
 
-// points.addEventListener('input', (event) => {
-//   const valorActual = event.target.value;
-//   range.innerHTML = `El valor actual es: ${valorActual}%`
-//   img.style.filter = `brightness(${valorActual}%)`
-// })
+rangeBrillo.addEventListener('input', (event) => {
+  const valorActual = event.target.value;
+  memeImg.style.filter = `brightness(${valorActual})`;
+})
+
+// Opacidad
+
+rangeOpacidad.addEventListener('input', (event) => {
+  const valorActual = event.target.value;
+  memeImg.style.filter = `opacity(${valorActual})`;
+})
+
+// Contraste
+
+rangeContraste.addEventListener('input', (event) => {
+  const valorActual = event.target.value;
+  memeImg.style.filter = `contrast(${valorActual}%)`;
+})
+
+// Desenfoque
+
+rangeDesenfoque.addEventListener('input', (event) => {
+  const valorActual = event.target.value;
+  memeImg.style.filter = `blur(${valorActual}px)`;
+})
+
+//Escala de GRISES
+
+rangeEDG.addEventListener('input', (event) => {
+  const valorActual = event.target.value;
+  memeImg.style.filter = `grayscale(${valorActual}%)`;
+})
+
+// Sepia 
+
+rangeSepia.addEventListener('input', (event) => {
+  const valorActual = event.target.value;
+  memeImg.style.filter = `sepia(${valorActual}%)`;
+})
+
+// HUE
+
+rangeHue.addEventListener('input', (event) => {
+  const valorActual = event.target.value;
+  memeImg.style.filter = `hue-rotate(${valorActual}deg)`;
+})
+
+// Saturación
+
+rangeSaturacion.addEventListener('input', (event) => {
+  const valorActual = event.target.value;
+  memeImg.style.filter = `saturate(${valorActual}%)`;
+})
+
+// Negativo
+
+rangeNegativo.addEventListener('input', (event) => {
+  const valorActual = event.target.value;
+  memeImg.style.filter = `invert(${valorActual})`;
+})
 
 //*************************** Funciones de texto ******************************
 
@@ -147,6 +211,26 @@ espaciado.addEventListener("change", (event)=>{
     topText.style.padding = `${espaciadoTexto}px 50px`;
     infText.style.padding = `${espaciadoTexto}px 50px`;
     console.log(topText.clientHeight);
+})
+
+//Funcion de Alineación de texto
+
+alIzquierda.addEventListener("click", (event)=>{
+    event.preventDefault();
+    topText.style.textAlign = "left";
+    infText.style.textAlign = "left";
+})
+
+alCentro.addEventListener("click", (event)=>{
+    event.preventDefault();
+    topText.style.textAlign = "center";
+    infText.style.textAlign = "center";
+})
+
+alDerecha.addEventListener("click", (event)=>{
+    event.preventDefault();
+    topText.style.textAlign = "right";
+    infText.style.textAlign = "right";
 })
 
 // Función de cambio de color en la tipografía
@@ -264,12 +348,12 @@ btnOscuro.addEventListener("click", function(){
     modoOscuro = !modoOscuro;
     if(modoOscuro){
         firma.setAttribute("src", "img/firma_moscuro.png") 
-        btnOscuro.innerHTML = "Modo Claro"; 
+        btnOscuro.innerHTML = '<i class="far fa-lightbulb button-icon-text" aria-hidden="true"></i>Modo Claro'; 
         btn_secundary.style.backgroundColor = "#c8c2f2";
         etiquetaBody.style.backgroundColor = "#27274d";
     }else{
         firma.setAttribute("src", "img/firma_mclaro.png")  
-        btnOscuro.innerHTML = "Modo Oscuro";
+        btnOscuro.innerHTML = '<i class="far fa-lightbulb button-icon-text" aria-hidden="true"></i>Modo Oscuro';
         btn_secundary.style.backgroundColor = "#c49ee3";
         etiquetaBody.style.backgroundColor = "#e0d2f0";
 
