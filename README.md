@@ -1,5 +1,5 @@
 # Generador de Memes Julieta Bondi - Thanya Mealla
-![Mi portfolio](img/meme.png)
+![MEME PROGRAMADOR](img/meme.png)
 ## Tareas realizadas:
 * Texto superior y texto inferior
 * Sin texto superior y sin texto inferior 
