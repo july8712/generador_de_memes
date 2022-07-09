@@ -10,6 +10,7 @@ body{
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
     background-color: #27274d;
+    overflow-x: hidden;
 }
 
 h1{
@@ -22,6 +23,10 @@ h2{
 
 h3{
     margin: 15px 0;
+}
+
+#fileIMGName{
+    margin-bottom:10px;
 }
 
 label{
@@ -44,7 +49,6 @@ header {
 
 main {
     /* height: 90vh; */
-    position: relative;
     background-color: #e0d2f0;
     width: 100%;
     display: flex;
@@ -55,26 +59,49 @@ main {
 }
 
 aside {
-    width: 15%;
+    width: 275px;
     padding: 30px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #d7b6f2;;
+    background-color: #d7b6f2;
+    transition: all 0.5s;
+    transform: translateX(0);
+}
+aside.cerrado {
+    transform: translateX(100%);
+}
+
+.btnAsideClose {
+    position: absolute;
+    right: 10%;
+    font-size: 1.3rem;
+    width: 10%;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 .btn {
     margin: 0 15px;
     background-color: transparent;
     border: none;
+    border-radius: 20px;
+    padding: 0.5rem;
     font-size: 18px;
     font-weight: bold;
     margin-top: 10px;
+    transition: all 0.25s;
+}
+.btn:hover {
+    cursor: pointer;
+    background-color:#e0d2f0;
 }
 
 .btn_cont{
     padding: 10px 12px;
-    background-color: transparent;
+    background-color:#fff6fc;
     border: none;
     font-size: 12px;
     font-weight: bold;
@@ -95,7 +122,7 @@ i{
 }
 
 #contGeneral {
-    width: 85%;
+    width: 100%;
 }
 
 .contFlex{
@@ -127,12 +154,51 @@ i{
 }
 
 select{
-    height:32px;
-    padding: 7px;
+    height:34px;
+    /* padding: 7px; */
+    font-weight:600;
 }
 
+.selectOption{
+ margin-left: 8px ;
+}
 #url{
     height:32px;
+    /* background-color: #c8c2f2; */
+    padding: 5px;
+}
+
+
+.inputFileContainer {
+    margin-top: 15px;
+}
+.inputFileContainer h5 {
+    padding: 0;
+    visibility: hidden;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.inputFileContainer input{
+    display: none;
+}
+.inputFileContainer label {
+    text-align: center;
+    color: #101124;
+    display: block;
+    padding: 5px 21px;
+    height: 32px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 15px;
+}
+.inputFileContainer #quitarFileIMGLabel {
+    display: none;
 }
 
 #fuente{
@@ -236,8 +302,9 @@ input[type='range'] {
     width: 100%;
     height: 5px;
     border-radius: 10px;
-    background-color: #b8bafa;
+    background-color:#7d7fc1;
     outline: none;
+    cursor: pointer;
 }
 /* Sección de Texto */
 
@@ -248,8 +315,8 @@ input[type='range'] {
 /* Sección MEME */
 
 #memeImg{
-    width: 610px;
-    height:358px;
+    width: 100%;
+    height: 400px;
     background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
@@ -257,25 +324,21 @@ input[type='range'] {
 }
 
 #meme{
-    height: 548px;
     display: flex;
+    width: 615px;
+    max-width: 615px;
+    height: 615px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background-color: white; */
     position: relative;
 }
 
 .textoMeme{
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* height:95px; */
-    width: 610px;
+    width: 100%;
     font-size: 2em;
     font-weight: 700;
     text-align: center;
-    /* line-height:95px; */
     color: #101124;
     background-color: white;
     position:static;
@@ -293,7 +356,14 @@ input[type='range'] {
     padding: 10px 20px;
     border-radius: 20px;
     border: none;
+    transition: all 0.25s;
+    border: 1px solid gray;
 }
+.btn_secundary:hover {
+    cursor:pointer;
+    background-color: #edebfa !important;
+}
+
 
 /* Botón restablecer de la sección imagen */
 
@@ -323,20 +393,117 @@ input[type='range'] {
 .modoOscuro .btn{
     color: #c8c2f2
 }
+.modoOscuro .btn:hover{
+    color: #101124;
+    background-color: #c8c2f2;
+}
 
 .modoOscuro .btn_secundary, .modoOscuro .btn_cont{
     background-color: #c8c2f2;
+}
+.modoOscuro .btn_secundary:hover {
+    background-color: #e3e0f7; ;
 }
 
 
 /* Imagen con firma */
 
 .firma{
-    position: absolute;
-    bottom: 15px;
-    right:15px;
     width: 200px;
 }
 
+#contFirma{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    padding-top: 20px;
+}
+/******************** Media Query Pantalla Grandes ********************/
+@media only screen and (min-width: 961px) {
+    .btnAsideClose {
+        display: none;
+    }
+}
 
 
+/******************** Media Query Tablet ********************/
+@media only screen and (min-width:481px) and (max-width: 960px){
+    main {
+        padding: 50px;
+    }
+    aside {
+        position: fixed;
+        top: 0;
+        right: 0;
+        overflow-y: auto;
+        height: 100%;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    nav {
+        padding: 0;
+        margin-top: 0.5rem;
+    }
+    .btn {
+        margin: 0 5px;
+        font-size: 1rem;
+    }
+    .btn_secundary {
+        margin-top: 15px;
+    }
+    .textoMeme {
+        /* padding: 15px 15px; */
+        font-size: 1.5rem;
+    }
+    #meme {
+        height: 400px;
+        width: 400px;
+    }
+    #contFirma {
+
+        justify-content: end;
+    }
+}
+
+/******************** Media Query Mobile ********************/
+@media only screen and (min-width:0px) and (max-width: 480px){
+    main {
+        padding: 40px;
+    }
+    aside {
+        position: fixed;
+        top: 0;
+        right: 0;
+        overflow-y: auto;
+        height: 100%;
+        width: 100%;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    nav {
+        padding: 0;
+        margin-top: 0.5rem;
+    }
+    .btn {
+        margin: 0 5px;
+        font-size: 0.8rem;
+    }
+    .btn_secundary {
+        margin-top: 10px;
+    }
+    .textoMeme {
+        padding: 15px 15px;
+        font-size: 1.5rem;
+    }
+    #meme {
+        height: 300px;
+        width: 300px;
+    }
+    /* .firma {
+        position: absolute;
+        margin-top: 1rem;
+        
+    } */
+}

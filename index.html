@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous">
+    <!-- Script para convertir el DOM a IMG y guardarlo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/estilos.css">
-    <title>Editor de Memes / Julieta Bondi - Thanya Mealla</title>
+    <title>Generador de Memes / Juli Bondi - Thanya Mealla</title>
 </head>
+
 <body class="modoOscuro">
     <div id="contenedor">
         <div id="contGeneral">
             <header>
                 <h1>Generador de Memes</h1>
                 <nav>
-                    <button class="btn seccionImg"><i class="fas fa-file-image button-icon-text" aria-hidden="true"></i>Imagen</button>
-                    <button class="btn seccionTxt"><i class="fas fa-font button-icon-text" aria-hidden="true"></i>Texto</button>
-                    <button class="btn btnOscuro"><i class="far fa-lightbulb button-icon-text" aria-hidden="true"></i>Modo Claro</button>
+                    <button class="btn seccionImg"><i class="fas fa-file-image button-icon-text"
+                            aria-hidden="true"></i>Imagen</button>
+                    <button class="btn seccionTxt"><i class="fas fa-font button-icon-text"
+                            aria-hidden="true"></i>Texto</button>
+                    <button class="btn btnOscuro"><i class="far fa-lightbulb button-icon-text"
+                            aria-hidden="true"></i>Modo Claro</button>
                 </nav>
             </header>
             <main>
@@ -27,32 +37,41 @@
                     </div>
                     <p id="infText" class="textoMeme">BOTTOM TEXT</p>
                 </section>
-                <button class="btn_secundary">Descargar meme</button>
-                <img class="firma" src="img/firma_moscuro.png" alt="Firma">
+                <button class="btn_secundary btn_descargarMeme" id="btnDescargarMeme">Descargar meme</button>
+                <div id="contFirma">
+                    <img class="firma" src="img/firma_moscuro.png" alt="Firma">
+                </div>
             </main>
         </div>
-        <aside>
+        <aside id="aside">
+            <button class="btnAsideClose" id="btnAsideClose">X</button>
             <section id="imagen">
                 <div class="contFlex">
                     <h2>IMAGEN</h2>
                 </div>
-                
+
                 <form action="">
                     <div class="contFlex flexCol justCenter url">
                         <label for="url">URL</label>
-                        <input type="text" name="url" id="url" >
+                        <input type="text" name="url" id="url">
+                        <div class="inputFileContainer">
+                            <h5 id="fileIMGName">Nada seleccionado.</h4>
+                            <label for="fileIMG" id="fileIMGLabel" class="btn_secundary">Cargar Imagen</label>
+                            <input type="file" name="fileIMG" id="fileIMG">
+                            <label for="quitarImagen" id="quitarFileIMGLabel">Quitar Imagen</label>
+                        </div>
                     </div>
 
                     <div class="contFlex justBet alignEnd fondo">
                         <div class="contFlex flexCol justCenter">
                             <label for="color">FONDO</label>
-                            <input type="color" value="#ffffff">
+                            <input type="color" id="inputColor" value="#ffffff">
                         </div>
 
                         <div class="contFlex flexCol justCenter">
-                            <select id="modos">
+                            <select class="selectOption" id="modos">
                                 <option value="ninguno">Ninguno</option>
-                                <option value="aclarar">Aclarar</option>
+                                <option class="option" value="aclarar">Aclarar</option>
                                 <option value="oscurecer">Oscurecer</option>
                                 <option value="diferencia">Diferencia</option>
                                 <option value="luminocidad">Luminocidad</option>
@@ -65,13 +84,17 @@
 
                     <div class="contFlex flexCol justCenter">
                         <label for="brillo">BRILLO</label>
-                        <input class="range" type="range" name="brillo" id="brillo" min="0" max="1" step="0.1" value="1">
+                        <input class="range" type="range" name="brillo" id="brillo" min="0" max="1" step="0.1"
+                            value="1">
                         <label for="opacidad">OPACIDAD</label>
-                        <input class="range" type="range" name="opacidad" id="opacidad" min="0" max="1" step="0.1" value="1">
+                        <input class="range" type="range" name="opacidad" id="opacidad" min="0" max="1" step="0.1"
+                            value="1">
                         <label for="contraste">CONTRASTE</label>
-                        <input class="range" type="range" name="contraste" id="contraste" min="100" max="1000" step="1" value="100">
+                        <input class="range" type="range" name="contraste" id="contraste" min="100" max="1000" step="1"
+                            value="100">
                         <label for="desenfoque">DESENFOQUE</label>
-                        <input class="range" type="range" name="desenfoque" id="desenfoque" min="0" max="10" step="0.1" value="0">
+                        <input class="range" type="range" name="desenfoque" id="desenfoque" min="0" max="10" step="0.1"
+                            value="0">
                         <label for="edg">ESCALA DE GRISES</label>
                         <input class="range" type="range" name="edg" id="edg" min="0" max="100" step="1" value="0">
                         <label for="sepia">SEPIA</label>
@@ -79,11 +102,13 @@
                         <label for="hue">HUE</label>
                         <input class="range" type="range" name="hue" id="hue" min="0" max="359" step="1" value="0">
                         <label for="saturacion">SATURACIÓN</label>
-                        <input class="range" type="range" name="saturacion" id="saturacion" min="100" max="1000" step="10" value="100">
+                        <input class="range" type="range" name="saturacion" id="saturacion" min="100" max="1000"
+                            step="10" value="100">
                         <label for="negativo">NEGATIVO</label>
-                        <input class="range" type="range" name="negativo" id="negativo" min="0" max="1" step="0.1" value="0">
+                        <input class="range" type="range" name="negativo" id="negativo" min="0" max="1" step="0.1"
+                            value="0">
 
-                        <input type="button" class="btn_secundary restablecer" value="RESTABLECER FILTROS">
+                        <input type="button" class="btn_secundary restablecer" value="RESTABLECER FILTROS" id="btnRestablecerFiltros">
                     </div>
 
 
@@ -92,14 +117,15 @@
 
             <section id="texto">
                 <h2>TEXTO</h2>
-                
+
                 <form action="">
                     <div class="contFlex flexCol justCenter contText">
-                        <label for="textSuperior" >Superior</label>
-                        <textarea name="textSuperior" id="textSuperior" cols="30" rows="10" placeholder="Top text">   
+                        <label for="textSuperior">Superior</label>
+                        <textarea name="textSuperior" id="textSuperior" cols="30" rows="10" placeholder="Top text">
                         </textarea>
                         <div class="contFlex bas">
-                            <input type="checkbox" name="sinTextoSup" id="sinTextoSup"><label for="sinTextoSup">Sin texto superior</label>
+                            <input type="checkbox" name="sinTextoSup" id="sinTextoSup"><label for="sinTextoSup">Sin
+                                texto superior</label>
                         </div>
                     </div>
                     <div class="contFlex flexCol justCenter">
@@ -107,9 +133,10 @@
                         <textarea name="textInferior" id="textInferior" cols="30" rows="10" placeholder="Bottom Text">
                         </textarea>
                     </div>
-                    <div class="contFlex bas"> 
-                        <input type="checkbox" name="sinTextoInf" id="sinTextoInf"><label for="sinTextoInf">Sin texto inferior</label>
-                    </div> 
+                    <div class="contFlex bas">
+                        <input type="checkbox" name="sinTextoInf" id="sinTextoInf"><label for="sinTextoInf">Sin texto
+                            inferior</label>
+                    </div>
                     <div class="contFlex flexCol justCenter">
                         <label for="fuente">FUENTE</label>
                         <select name="fuente" id="fuente">
@@ -123,14 +150,14 @@
                             <option value="verdana">Verdana</option>
                             <option value="timeNewRoman">Time New Roman</option>
                         </select>
-                    </div>  
+                    </div>
 
                     <div class="tamanioText contFlex">
                         <input type="number" id="tamanioText" name="tamanioText" min="12" value="40">
                         <div class="contFlex justBet">
                             <button class="fas fa-align-left"></button>
                             <button class="fas fa-align-center"></button>
-                            <button class="fas fa-align-right"></button>  
+                            <button class="fas fa-align-right"></button>
                         </div>
                     </div>
 
@@ -146,12 +173,13 @@
                         </div>
                     </div>
 
-                    <div class="contFlex bas"> 
-                        <input type="checkbox" id="fondoTransparente" name="fondoTransparente"><label for="fondoTransparente">Fondo Transparente</label>
+                    <div class="contFlex bas">
+                        <input type="checkbox" id="fondoTransparente" name="fondoTransparente"><label
+                            for="fondoTransparente">Fondo Transparente</label>
                     </div>
-                    
+
                     <h3>Contorno</h3>
-                    
+
                     <div class="contFlex justBet conj_btn">
                         <button class="btnOscuro btn_cont" id="contNinguno">Ninguno</button>
                         <button class="btnOscuro btn_cont" id="contClaro">Claro</button>
@@ -179,4 +207,5 @@
     </div>
     <script src="js/app.js"></script>
 </body>
+
 </html>
