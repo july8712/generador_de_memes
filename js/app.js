@@ -444,6 +444,9 @@ const btnDescargarMeme = document.querySelector("#btnDescargarMeme");
 
 btnDescargarMeme.addEventListener('click', () => {
     domtoimage.toBlob(meme).then(function (blob) {
+
+        console.log(blob)
+
         saveAs(blob, 'meme.jpg');
     })
 })
