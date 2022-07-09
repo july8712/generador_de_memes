@@ -67,7 +67,7 @@ const memeImg = document.querySelector("#memeImg");
 let tamanioImg = memeImg.clientHeight;
 let tamanioParrafoSup = topText.clientHeight;
 
-console.log(tamanioParrafoSup);
+
 
 window.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth < 959) {
@@ -260,17 +260,14 @@ sinTextoSup.addEventListener("change", (event)=>{
     if (activoSup && activoTransparent == false) {
         fondoTextoMeme[0].style.display = "none";
         tamanioImg = tamanioImg + topText.clientHeight;
-        console.log("Sin fondo transparente el texto es de " +tamanioImg)
         memeImg.style.height = `${tamanioImg}px`;
     }else if(activoSup && activoTransparent){
         fondoTextoMeme[0].style.display = "none";
-        console.log("El fondo transparente sin texto es de " + tamanioImg)
         memeImg.style.height = `${(memeImg.height + topText.clientHeight)}px`;
     }
     else{
         fondoTextoMeme[0].style.display = "block";
         tamanioImg = tamanioImg + topText.clientHeight;
-        console.log("Fondo es de " +tamanioImg)
         memeImg.style.height = `${tamanioImg}px`;
     }
 })
@@ -281,16 +278,13 @@ sinTextoInf.addEventListener("change", (event)=>{
     if (activoInf && activoTransparent == false) {
         fondoTextoMeme[1].style.display = "none";
         tamanioImg = tamanioImg + infText.clientHeight;
-        console.log("Sin fondo transparente el texto es de " +tamanioImg)
         memeImg.style.height = `${tamanioImg}px`;
     }else if(activoInf && activoTransparent){
         fondoTextoMeme[1].style.display = "none";
-        console.log("El fondo transparente sin texto es de " + tamanioImg)
         memeImg.style.height = `${(memeImg.height + infText.clientHeight)}px`;
     }else{
         fondoTextoMeme[1].style.display = "block";
         tamanioImg = tamanioImg + infText.clientHeight;
-        console.log(tamanioImg)
         memeImg.style.height = `${tamanioImg}px`;
     }
 })
@@ -299,7 +293,8 @@ sinTextoInf.addEventListener("change", (event)=>{
 
 fondoTransparente.addEventListener("change", (event)=>{
     activoTransparent = !activoTransparent;
-    console.log(colorFondoText)
+    tamanioImg = memeImg.clientHeight;
+
     if (activoTransparent) {
         fondoTextoMeme[0].style.backgroundColor = "transparent";
         fondoTextoMeme[1].style.backgroundColor = "transparent";
@@ -309,9 +304,8 @@ fondoTransparente.addEventListener("change", (event)=>{
         fondoTextoMeme[0].style.left = 0;
         fondoTextoMeme[1].style.bottom = 0;
         fondoTextoMeme[1].style.left = 0;
-        memeImg.style.height = `${tamanioImg + infText.clientHeight + infText.clientHeight}px`;
+        memeImg.style.height = `${tamanioImg + infText.clientHeight + topText.clientHeight}px`;
         activoTransparent = true;
-        console.log("El tamaño con fondo transparente es de "+memeImg.clientHeight)
     }else{
         fondoTextoMeme[0].style.backgroundColor = colorFondoText;
         fondoTextoMeme[1].style.backgroundColor = colorFondoText;
@@ -319,7 +313,6 @@ fondoTransparente.addEventListener("change", (event)=>{
         fondoTextoMeme[1].style.position = "static";
         memeImg.style.height = `${tamanioImg}px`;
         activoTransparent = false;
-        console.log("El tamaño sin fondo transparente es de "+memeImg.clientHeight)
     }
 })
 
@@ -381,7 +374,6 @@ btnTexto.addEventListener("click", function(){
         aside.classList.remove("cerrado");
         contFirma.style.justifyContent = 'end'
     }
-    // contFirma.style.justifyContent = 'center';
 });
 
 btnImg.addEventListener("click", function(){
@@ -390,7 +382,6 @@ btnImg.addEventListener("click", function(){
     if (aside.classList.contains("cerrado")) {
         aside.classList.remove("cerrado");
     }
-    // contFirma.style.justifyContent = 'center';
 });
 
 
@@ -464,10 +455,8 @@ window.addEventListener('resize', () => {
             aside.classList.remove('cerrado')
         }
     }
-    // contFirma.style.justifyContent = 'center';
 })
 
 btnAsideClose.addEventListener('click', () => {
     aside.classList.add('cerrado')
-    // contFirma.style.justifyContent = 'end';
 })
