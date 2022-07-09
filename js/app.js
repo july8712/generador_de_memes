@@ -1,5 +1,7 @@
 let btnOscuro = document.querySelector(".btnOscuro");
 let body = document.querySelector("body");
+let aside = document.querySelector("#aside")
+let meme = document.querySelector("#meme");
 let firma = document.querySelector(".firma");
 let modoOscuro = true;
 let btnTexto = document.querySelector(".seccionTxt");
@@ -11,7 +13,11 @@ let etiquetaBody = document.querySelector("body");
 let activoInf = false;
 let activoSup = false;
 let activoTransparent = false;
+const btnRestablecerFiltros = document.querySelector("#btnRestablecerFiltros")
+const btnAsideClose = document.querySelector("#btnAsideClose")
+const contFirma = document.querySelector("#contFirma")
 // textos del meme
+
 const textSuperior = document.querySelector("#textSuperior");
 const textInferior = document.querySelector("#textInferior");
 const topText = document.querySelector("#topText");
@@ -33,6 +39,7 @@ const contOscuro = document.querySelector("#contOscuro");
 const alIzquierda = document.querySelector(".fa-align-left");
 const alCentro = document.querySelector(".fa-align-center");
 const alDerecha = document.querySelector(".fa-align-right");
+
 //variables tipo range
 
 const rangeBrillo = document.querySelector("#brillo");
@@ -43,16 +50,36 @@ const rangeEDG = document.querySelector("#edg");
 const rangeSepia = document.querySelector("#sepia");
 const rangeHue = document.querySelector("#hue");
 const rangeSaturacion = document.querySelector("#saturacion");
-const rangeNegativo = document.querySelector("#negativo")
+const rangeNegativo = document.querySelector("#negativo");
+const range = document.querySelectorAll(".range");
+
+// Variables de modos de imagen
+const inputColor = document.querySelector("#inputColor")
+const modosImagen = document.querySelector("#modos")
 
 //Variables de imagen
 
 const url = document.querySelector("#url");
+const fileIMG = document.querySelector("#fileIMG");
+let fileIMGName = document.querySelector('#fileIMGName')
+const quitarFileIMGLabel = document.querySelector("#quitarFileIMGLabel");
 const memeImg = document.querySelector("#memeImg");
 let tamanioImg = memeImg.clientHeight;
 let tamanioParrafoSup = topText.clientHeight;
 
 console.log(tamanioParrafoSup);
+
+window.addEventListener("DOMContentLoaded", () => {
+    if (window.innerWidth < 959) {
+        aside.style.transition = "none"
+        aside.classList.add('cerrado')
+        setTimeout(() => {
+            aside.style.removeProperty("transition")
+        }, 1);
+    }
+})
+
+
 // ********************************* función generador de imagen **************************************
 
 url.addEventListener("input", (event)=>{
@@ -60,70 +87,46 @@ url.addEventListener("input", (event)=>{
     memeImg.style.backgroundImage = `url('${rutaImg}')`;
 })
 
+// Importar imagen de forma local
+
+if (fileIMG.files.length == 0) {
+    fileIMG.addEventListener("change", (event)=>{
+        const fileRutaImg = URL.createObjectURL(event.target.files[0])
+        memeImg.style.backgroundImage = `url('${fileRutaImg}')`
+        fileIMGName.innerText = fileIMG.files[0].name
+        fileIMGName.style.visibility = 'visible'
+        fileIMGLabel.style.display = "none"
+        quitarFileIMGLabel.style.display = "block"
+    })
+}
+// Quitar la imagen importada de forma local
+
+quitarFileIMGLabel.addEventListener('click', () => {
+    memeImg.style.backgroundImage = '';
+    fileIMG.value = "";
+    fileIMGName.style.visibility = 'hidden'
+    fileIMGLabel.style.display = "block"
+    quitarFileIMGLabel.style.display = "none"
+})
+
+
 // ************************************* Filtros Range **************************************************
 
-// Brillo
-
-rangeBrillo.addEventListener('input', (event) => {
-  const valorActual = event.target.value;
-  memeImg.style.filter = `brightness(${valorActual})`;
-})
-
-// Opacidad
-
-rangeOpacidad.addEventListener('input', (event) => {
-  const valorActual = event.target.value;
-  memeImg.style.filter = `opacity(${valorActual})`;
-})
-
-// Contraste
-
-rangeContraste.addEventListener('input', (event) => {
-  const valorActual = event.target.value;
-  memeImg.style.filter = `contrast(${valorActual}%)`;
-})
-
-// Desenfoque
-
-rangeDesenfoque.addEventListener('input', (event) => {
-  const valorActual = event.target.value;
-  memeImg.style.filter = `blur(${valorActual}px)`;
-})
-
-//Escala de GRISES
-
-rangeEDG.addEventListener('input', (event) => {
-  const valorActual = event.target.value;
-  memeImg.style.filter = `grayscale(${valorActual}%)`;
-})
-
-// Sepia 
-
-rangeSepia.addEventListener('input', (event) => {
-  const valorActual = event.target.value;
-  memeImg.style.filter = `sepia(${valorActual}%)`;
-})
-
-// HUE
-
-rangeHue.addEventListener('input', (event) => {
-  const valorActual = event.target.value;
-  memeImg.style.filter = `hue-rotate(${valorActual}deg)`;
-})
-
-// Saturación
-
-rangeSaturacion.addEventListener('input', (event) => {
-  const valorActual = event.target.value;
-  memeImg.style.filter = `saturate(${valorActual}%)`;
-})
-
-// Negativo
-
-rangeNegativo.addEventListener('input', (event) => {
-  const valorActual = event.target.value;
-  memeImg.style.filter = `invert(${valorActual})`;
-})
+const filtrosRange = () => {
+    memeImg.style.filter = `brightness(${rangeBrillo.value}) opacity(${rangeOpacidad.value}) 
+                            blur(${rangeDesenfoque.value}px) contrast(${rangeContraste.value}%) grayscale(${rangeEDG.value}%) 
+                            hue-rotate(${rangeHue.value}deg) sepia(${rangeSepia.value}%) saturate(${rangeSaturacion.value}%) 
+                            invert(${rangeNegativo.value})`
+}
+rangeBrillo.addEventListener('change', filtrosRange)
+rangeOpacidad.addEventListener('change', filtrosRange)
+rangeDesenfoque.addEventListener('change', filtrosRange)
+rangeContraste.addEventListener('change', filtrosRange)
+rangeEDG.addEventListener('change', filtrosRange)
+rangeHue.addEventListener('change', filtrosRange)
+rangeSepia.addEventListener('change', filtrosRange)
+rangeSaturacion.addEventListener('change', filtrosRange)
+rangeNegativo.addEventListener('change', filtrosRange)
 
 //*************************** Funciones de texto ******************************
 
@@ -320,6 +323,7 @@ fondoTransparente.addEventListener("change", (event)=>{
     }
 })
 
+
 //Función Contorno de texto
 
 contNinguno.addEventListener("click", (event)=>{
@@ -351,12 +355,20 @@ btnOscuro.addEventListener("click", function(){
         btnOscuro.innerHTML = '<i class="far fa-lightbulb button-icon-text" aria-hidden="true"></i>Modo Claro'; 
         btn_secundary.style.backgroundColor = "#c8c2f2";
         etiquetaBody.style.backgroundColor = "#27274d";
+        for(let i = 0; i < range.length; i++){
+            range[i].style.backgroundColor = "#7d7fc1";
+        }
     }else{
         firma.setAttribute("src", "img/firma_mclaro.png")  
         btnOscuro.innerHTML = '<i class="far fa-lightbulb button-icon-text" aria-hidden="true"></i>Modo Oscuro';
         btn_secundary.style.backgroundColor = "#c49ee3";
         etiquetaBody.style.backgroundColor = "#e0d2f0";
-
+        url.style.backgroundColor = "#ffffff";
+        modos.style.backgroundColor = "#ffffff";
+        for(let i = 0; i < range.length; i++){
+            range[i].style.backgroundColor = "#9f52aa";
+        }
+        
     }
 })
 
@@ -365,11 +377,97 @@ btnOscuro.addEventListener("click", function(){
 btnTexto.addEventListener("click", function(){
     seccionTxt.style.display = "block";
     seccionImg.style.display = "none";
+    if (aside.classList.contains("cerrado")) {
+        aside.classList.remove("cerrado");
+        contFirma.style.justifyContent = 'end'
+    }
+    // contFirma.style.justifyContent = 'center';
 });
 
 btnImg.addEventListener("click", function(){
     seccionTxt.style.display = "none";
     seccionImg.style.display = "block";
+    if (aside.classList.contains("cerrado")) {
+        aside.classList.remove("cerrado");
+    }
+    // contFirma.style.justifyContent = 'center';
 });
 
 
+//************************* Modos de imagen - Input Color *************************
+
+inputColor.addEventListener("input", (e) => {
+    let colorElegido = e.target.value;
+    memeImg.style.backgroundColor = colorElegido
+})
+
+//************************* Modos de imagen - Select Modo *************************
+
+modosImagen.addEventListener("change", (e) => {
+    let modoElegido = e.target.value
+    switch (modoElegido) {
+        case 'ninguno':
+            memeImg.style.backgroundBlendMode = 'unset'
+            break;
+        case 'aclarar':
+            memeImg.style.backgroundBlendMode = 'lighten'
+            break;
+        case 'oscurecer':
+            memeImg.style.backgroundBlendMode = 'darken'
+            break;
+        case 'diferencia':
+            memeImg.style.backgroundBlendMode = 'difference'
+            break;
+        case 'luminocidad':
+            memeImg.style.backgroundBlendMode = 'luminosity'
+            break;
+        case 'multiplicar':
+            memeImg.style.backgroundBlendMode = 'multiply'
+            break;
+    
+        default:
+            memeImg.style.backgroundBlendMode = 'unset'
+            break;
+    }
+})
+
+//************************* Función Restablecer Filtros *************************
+
+btnRestablecerFiltros.addEventListener('click', () => {
+    memeImg.style.filter = 'none';
+    rangeBrillo.value = 1
+    rangeOpacidad.value = 1 
+    rangeContraste.value = 100
+    rangeDesenfoque.value = 0
+    rangeEDG.value = 0
+    rangeSepia.value = 0 
+    rangeHue.value = 0
+    rangeSaturacion.value = 100 
+    rangeNegativo.value = 0
+})
+
+
+//************************* Función Descargar Meme *************************
+
+const btnDescargarMeme = document.querySelector("#btnDescargarMeme");
+
+btnDescargarMeme.addEventListener('click', () => {
+    domtoimage.toBlob(meme).then(function (blob) {
+        saveAs(blob, 'meme.jpg');
+    })
+})
+
+//************************* Funcionabilidad del aside responsive *************************
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 960) {
+        if (aside.classList.contains('cerrado')) {
+            aside.classList.remove('cerrado')
+        }
+    }
+    // contFirma.style.justifyContent = 'center';
+})
+
+btnAsideClose.addEventListener('click', () => {
+    aside.classList.add('cerrado')
+    // contFirma.style.justifyContent = 'end';
+})
